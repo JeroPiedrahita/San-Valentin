@@ -1,4 +1,8 @@
-const btnNo = document.querySelector("#btn-no");
+document.addEventListener("DOMContentLoaded", () => {
+    const btnNo = document.getElementById("btn-no");
+    const btnSi = document.getElementById("btn-si");
+    const pantallaPregunta = document.getElementById("pantalla-pregunta");
+    const pantallaExito = document.getElementById("pantalla-exito");
 
 const moverBoton = () => {
     // Calculamos el espacio disponible restando el tamaño del botón
@@ -19,4 +23,11 @@ btnNo.addEventListener("mouseover", moverBoton);
 btnNo.addEventListener("touchstart", (e) => {
     e.preventDefault(); // Evita que el celular haga el "clic" real
     moverBoton();
-});;
+};
+    
+// Acción del botón SÍ
+    btnSi.onclick = () => {
+        pantallaPregunta.classList.add("hidden");
+        pantallaExito.classList.remove("hidden");
+    };
+});
