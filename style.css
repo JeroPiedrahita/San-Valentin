@@ -1,1 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffe6e6; /* Un rosado suave */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
 
+.container {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 60px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn-si {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+#btn-no {
+    background-color: #888;
+    color: white;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    width: 250px;
+    margin-top: 20px;
+}
