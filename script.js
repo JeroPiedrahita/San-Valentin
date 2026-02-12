@@ -1,29 +1,24 @@
 const btnNo = document.querySelector("#btn-no");
 const btnSi = document.querySelector("#btn-si");
-const preAceptar = document.querySelector("#pre-aceptar");
-const postAceptar = document.querySelector("#post-aceptar");
+const pantallaPregunta = document.querySelector("#pantalla-pregunta");
+const pantallaExito = document.querySelector("#pantalla-exito");
 
-// Función para mover el botón de posición
+// Función para mover el botón No
 const moverBoton = () => {
-    // Calculamos posiciones aleatorias dentro del ancho y alto de la ventana
     const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
     const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
-    
     btnNo.style.left = `${x}px`;
     btnNo.style.top = `${y}px`;
 };
 
-// Evento para computadoras (Mouse)
 btnNo.addEventListener("mouseover", moverBoton);
-
-// Evento para celulares (Touch)
 btnNo.addEventListener("touchstart", (e) => {
-    e.preventDefault(); // Evita que se haga click al intentar tocarlo
+    e.preventDefault();
     moverBoton();
 });
 
-// Al dar click en SÍ, cambiamos lo que se muestra
+// Al dar clic en SÍ, intercambiamos pantallas
 btnSi.addEventListener("click", () => {
-    preAceptar.classList.add("hidden");
-    postAceptar.classList.remove("hidden");
+    pantallaPregunta.classList.add("hidden"); // Oculta la pregunta
+    pantallaExito.classList.remove("hidden"); // Muestra el éxito
 });
