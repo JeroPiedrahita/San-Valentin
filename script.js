@@ -3,26 +3,26 @@ const btnSi = document.querySelector("#btn-si");
 const preAceptar = document.querySelector("#pre-aceptar");
 const postAceptar = document.querySelector("#post-aceptar");
 
-// Función para mover el botón "No"
-const moverBotonNo = () => {
-    // Calculamos nuevas coordenadas aleatorias
-    // Restamos el tamaño del botón para que no se salga del borde derecho/inferior
+// Función para mover el botón de posición
+const moverBoton = () => {
+    // Calculamos posiciones aleatorias dentro del ancho y alto de la ventana
     const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
     const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
     
-    btnNo.style.position = "absolute";
     btnNo.style.left = `${x}px`;
     btnNo.style.top = `${y}px`;
 };
 
-// Se activa al pasar el mouse (PC) o al intentar tocar (Celular)
-btnNo.addEventListener("mouseover", moverBotonNo);
+// Evento para computadoras (Mouse)
+btnNo.addEventListener("mouseover", moverBoton);
+
+// Evento para celulares (Touch)
 btnNo.addEventListener("touchstart", (e) => {
-    e.preventDefault(); // Evita que se haga click accidentalmente en móviles
-    moverBotonNo();
+    e.preventDefault(); // Evita que se haga click al intentar tocarlo
+    moverBoton();
 });
 
-// Acción al dar clic en "Sí"
+// Al dar click en SÍ, cambiamos lo que se muestra
 btnSi.addEventListener("click", () => {
     preAceptar.classList.add("hidden");
     postAceptar.classList.remove("hidden");
