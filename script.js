@@ -5,29 +5,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const pantallaExito = document.getElementById("pantalla-exito");
 
     const moverBoton = () => {
+        // Calculamos nuevas coordenadas aleatorias
         const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
         const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
         
+        // Al moverlo, usamos 'fixed' para que escape por TODA la pantalla
         btnNo.style.position = "fixed";
         btnNo.style.left = `${x}px`;
         btnNo.style.top = `${y}px`;
     };
 
-    // Evento para mouse
+    // Eventos para el botón que huye
     btnNo.addEventListener("mouseover", moverBoton);
-
-    // Evento para celular (Aquí estaba el error de cierre)
     btnNo.addEventListener("touchstart", (e) => {
         e.preventDefault(); 
         moverBoton();
-    }); // <-- Aquí faltaba el ");"
+    });
 
     // Acción del botón SÍ
     btnSi.onclick = () => {
         pantallaPregunta.classList.add("hidden");
         pantallaExito.classList.remove("hidden");
-        
-        // Opcional: ocultamos el botón "No" por si quedó volando por ahí
-        btnNo.style.display = "none";
+        btnNo.style.display = "none"; // Desaparece el botón No definitivamente
     };
 });
